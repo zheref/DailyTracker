@@ -1,0 +1,14 @@
+PODS:
+  - XCGLogger (4.0.0):
+    - XCGLogger/Core (= 4.0.0)
+  - XCGLogger/Core (4.0.0)
+
+DEPENDENCIES:
+  - XCGLogger (~> 4.0.0)
+
+SPEC CHECKSUMS:
+  XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
+
+PODFILE CHECKSUM: 70be1847cc0d98e73b1914ed82eb43e5f940d209
+
+COCOAPODS: 1.1.1

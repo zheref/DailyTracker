@@ -1,0 +1,6 @@
+framework module Pods_DailyTracker {
+  umbrella header "Pods-DailyTracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

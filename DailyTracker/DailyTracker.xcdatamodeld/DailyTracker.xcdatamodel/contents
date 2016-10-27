@@ -1,4 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Xcode 7.3" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Asset" representedClassName="Asset" syncable="YES" codeGenerationType="category">
+        <attribute name="adventure" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="buydate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="category" attributeType="String" syncable="YES"/>
+        <attribute name="crosscountry" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="duration" attributeType="Integer 16" minValueString="1" maxValueString="20" defaultValueString="1" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="environment" attributeType="String" syncable="YES"/>
+        <attribute name="kind" attributeType="String" minValueString="2" syncable="YES"/>
+        <attribute name="paidprice" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="picture" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="placestuck" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="renewprice" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="savingtime" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="whimpoints" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Earning" inverseName="spend" inverseEntity="Earning" syncable="YES"/>
+    </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="category">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="goals" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="category" inverseEntity="Goal" syncable="YES"/>
+    </entity>
+    <entity name="Earning" representedClassName="Earning" syncable="YES" codeGenerationType="category">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="points" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="spend" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Asset" inverseName="whimpoints" inverseEntity="Asset" syncable="YES"/>
+    </entity>
+    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="category">
+        <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="expiringDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastUpdateDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="reminder" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="remindPattern" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="repeat" attributeType="Integer 16" minValueString="1" defaultValueString="1" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="text" attributeType="String" minValueString="1" syncable="YES"/>
+        <relationship name="category" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="goals" inverseEntity="Category" syncable="YES"/>
+        <relationship name="children" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="parent" inverseEntity="Goal" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="children" inverseEntity="Goal" syncable="YES"/>
+        <relationship name="records" toMany="YES" deletionRule="Nullify" destinationEntity="Record" inverseName="goal" inverseEntity="Record" syncable="YES"/>
+        <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="goals" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="category">
+        <attribute name="datetime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="goal" maxCount="1" deletionRule="Nullify" destinationEntity="Goal" inverseName="records" inverseEntity="Goal" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="category">
+        <attribute name="email" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="goals" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="user" inverseEntity="Goal" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="newRelationship1" inverseEntity="User" syncable="YES"/>
+        <relationship name="newRelationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="newRelationship" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Asset" positionX="189" positionY="-183" width="128" height="253"/>
+        <element name="Category" positionX="-11" positionY="27" width="128" height="73"/>
+        <element name="Earning" positionX="-11" positionY="312" width="128" height="88"/>
+        <element name="Goal" positionX="-279" positionY="9" width="128" height="223"/>
+        <element name="Record" positionX="-11" positionY="177" width="128" height="73"/>
+        <element name="User" positionX="-81" positionY="-135" width="128" height="118"/>
+    </elements>
 </model>
