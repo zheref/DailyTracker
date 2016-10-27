@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09C28949E1B7D6F467FA8643 /* Pods_Watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECF3F676083A4C7CB5FB5AC /* Pods_Watch_Extension.framework */; };
 		0E12BAE63D082189BEB66BA9 /* Pods_DailyTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFBFDC961C33617136E6BB6C /* Pods_DailyTracker.framework */; };
 		1B37EB45C987D387854001F7 /* Pods_DailyTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228CFF1F689AD6777BD84E93 /* Pods_DailyTrackerTests.framework */; };
 		2B21323E1D6B57C900266ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21323D1D6B57C900266ACB /* AppDelegate.swift */; };
@@ -17,8 +16,8 @@
 		2B21324B1D6B57C900266ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2132491D6B57C900266ACB /* LaunchScreen.storyboard */; };
 		2B2132561D6B57C900266ACB /* DailyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2132551D6B57C900266ACB /* DailyTrackerTests.swift */; };
 		2B2132611D6B57C900266ACB /* DailyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2132601D6B57C900266ACB /* DailyTrackerUITests.swift */; };
+		2B3A68891DC1A1300028ACA0 /* DailyTracker.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 2B2132441D6B57C900266ACB /* DailyTracker.xcdatamodeld */; };
 		55B92B99ED55D608A48CE52B /* Pods_DailyTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB849E4848A148598DF08855 /* Pods_DailyTrackerUITests.framework */; };
-		7413D2486E93A97F53226EE4 /* Pods_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174EA4F587D556EF70B3D7E7 /* Pods_Watch.framework */; };
 		9D1B08511DBEBA0700CA6350 /* DailyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B08501DBEBA0700CA6350 /* DailyPresenter.swift */; };
 		9D1B08531DBEBA2000CA6350 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B08521DBEBA2000CA6350 /* DailyViewController.swift */; };
 		9D4606821DC109890061651F /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4606811DC109890061651F /* AssetModel.swift */; };
@@ -26,7 +25,6 @@
 		9D4606861DC10CAD0061651F /* LocalAssetsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4606851DC10CAD0061651F /* LocalAssetsDataStore.swift */; };
 		9D4606891DC122DF0061651F /* NewAssetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4606881DC122DF0061651F /* NewAssetPresenter.swift */; };
 		9D46068B1DC123170061651F /* NewAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46068A1DC123170061651F /* NewAssetViewController.swift */; };
-		9D7312F01DC157BE0025AA11 /* DailyTracker.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 2B2132441D6B57C900266ACB /* DailyTracker.xcdatamodeld */; };
 		9DA88B3C1DBA6D1400BA6DF6 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DA88B3A1DBA6D1400BA6DF6 /* Interface.storyboard */; };
 		9DA88B3E1DBA6D1400BA6DF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DA88B3D1DBA6D1400BA6DF6 /* Assets.xcassets */; };
 		9DA88B451DBA6D1500BA6DF6 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 9DA88B441DBA6D1400BA6DF6 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -219,7 +217,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09C28949E1B7D6F467FA8643 /* Pods_Watch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +224,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7413D2486E93A97F53226EE4 /* Pods_Watch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,10 +695,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D7312F01DC157BE0025AA11 /* DailyTracker.xcdatamodeld in Resources */,
 				2B21324B1D6B57C900266ACB /* LaunchScreen.storyboard in Resources */,
 				2B2132481D6B57C900266ACB /* Assets.xcassets in Resources */,
 				2B2132431D6B57C900266ACB /* Main.storyboard in Resources */,
+				2B3A68891DC1A1300028ACA0 /* DailyTracker.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
