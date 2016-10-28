@@ -136,4 +136,9 @@ class NewAssetViewController : UIViewController, UITextFieldDelegate, UINavigati
         imagePicker?.dismiss(animated: true, completion: nil)
     }
     
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        imagePicker?.dismiss(animated: true, completion: nil)
+    }
+    
 }
