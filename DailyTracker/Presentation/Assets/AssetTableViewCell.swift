@@ -19,4 +19,12 @@ class AssetTableViewCell : UITableViewCell {
     @IBOutlet weak var renewalPriceLabel: UILabel!
     
     
+    func apply(model: AssetModel) {
+        titleLabel.text = model.kind
+        brandAndIntervalLabel.text = "\(model.brand!.uppercased()) | \(model.purchaseYear) - \(model.expiringYear)"
+        purchasePriceLabel.text = "$\(model.paidprice!)"
+        
+        remainingLifeLabel.text = "\(model.points)"
+    }
+    
 }

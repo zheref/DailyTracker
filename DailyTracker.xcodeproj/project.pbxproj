@@ -16,7 +16,6 @@
 		2B21324B1D6B57C900266ACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B2132491D6B57C900266ACB /* LaunchScreen.storyboard */; };
 		2B2132561D6B57C900266ACB /* DailyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2132551D6B57C900266ACB /* DailyTrackerTests.swift */; };
 		2B2132611D6B57C900266ACB /* DailyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2132601D6B57C900266ACB /* DailyTrackerUITests.swift */; };
-		2B3A68891DC1A1300028ACA0 /* DailyTracker.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 2B2132441D6B57C900266ACB /* DailyTracker.xcdatamodeld */; };
 		55B92B99ED55D608A48CE52B /* Pods_DailyTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB849E4848A148598DF08855 /* Pods_DailyTrackerUITests.framework */; };
 		9D1B08511DBEBA0700CA6350 /* DailyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B08501DBEBA0700CA6350 /* DailyPresenter.swift */; };
 		9D1B08531DBEBA2000CA6350 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B08521DBEBA2000CA6350 /* DailyViewController.swift */; };
@@ -47,6 +46,7 @@
 		9DA88BB61DBAB3DD00BA6DF6 /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA88BAA1DBAB3DD00BA6DF6 /* Goal+CoreDataClass.swift */; };
 		9DA88BB71DBAB3DD00BA6DF6 /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA88BAB1DBAB3DD00BA6DF6 /* Goal+CoreDataProperties.swift */; };
 		9DA88BC51DBAB52300BA6DF6 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA88BC41DBAB52300BA6DF6 /* SignInPresenter.swift */; };
+		9DC713CC1DC26C8A00819F8C /* DailyTracker.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 2B2132441D6B57C900266ACB /* DailyTracker.xcdatamodeld */; };
 		9DD0A8211DBFBC500069B8CA /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0A8201DBFBC500069B8CA /* Globals.swift */; };
 		9DD0A8231DBFBDC00069B8CA /* Konstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0A8221DBFBDC00069B8CA /* Konstants.swift */; };
 		9DD0A8251DBFC0840069B8CA /* GoalsDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0A8241DBFC0840069B8CA /* GoalsDataStoreProtocol.swift */; };
@@ -695,10 +695,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC713CC1DC26C8A00819F8C /* DailyTracker.xcdatamodeld in Resources */,
 				2B21324B1D6B57C900266ACB /* LaunchScreen.storyboard in Resources */,
 				2B2132481D6B57C900266ACB /* Assets.xcassets in Resources */,
 				2B2132431D6B57C900266ACB /* Main.storyboard in Resources */,
-				2B3A68891DC1A1300028ACA0 /* DailyTracker.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

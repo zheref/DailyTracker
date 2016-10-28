@@ -11,11 +11,55 @@ import UIKit
 
 protocol AssetsViewControllerProtocol : ViewProtocol {
     
+    func reload()
+    
 }
 
 
 class AssetsViewController : UITableViewController, AssetsViewControllerProtocol {
     
+    var presenter = AssetsPresenter()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.beforeAppear()
+        super.viewWillAppear(animated)
+    }
+    
+    
+    override func viewDidLoad() {
+        presenter.attachView(view: self)
+        presenter.onLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presenter.afterAppear()
+    }
+    
+    func reload() {
+        tableView.reloadData()
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.items.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: KReuseIdentifiers.assetTableViewCell,
+                                                 for: indexPath) as! AssetTableViewCell
+        
+        cell.apply(model: presenter.items[indexPath.row])
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 
     @IBAction func onNewAssetAction(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: KSegues.assetsToNewAsset, sender: self)

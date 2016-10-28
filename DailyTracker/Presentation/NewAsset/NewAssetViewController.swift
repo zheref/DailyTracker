@@ -16,7 +16,7 @@ protocol NewAssetViewControllerProtocol : ViewProtocol {
 }
 
 
-class NewAssetViewController : UIViewController, NewAssetViewControllerProtocol {
+class NewAssetViewController : UIViewController, UITextFieldDelegate, NewAssetViewControllerProtocol {
     
     @IBOutlet weak var picImageView: UIImageView!
     @IBOutlet weak var assetTextField: UITextField!
@@ -45,6 +45,18 @@ class NewAssetViewController : UIViewController, NewAssetViewControllerProtocol 
     override func viewDidLoad() {
         presenter.attachView(view: self)
         presenter.onLoad()
+        
+        assetTextField.returnKeyType = .done
+        brandTextField.returnKeyType = .done
+        priceTextField.returnKeyType = .done
+        categoryTextField.returnKeyType = .done
+        environmentTextField.returnKeyType = .done
+        
+        assetTextField.delegate = self
+        brandTextField.delegate = self
+        priceTextField.delegate = self
+        categoryTextField.delegate = self
+        environmentTextField.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
@@ -75,7 +87,7 @@ class NewAssetViewController : UIViewController, NewAssetViewControllerProtocol 
     
     
     func dismiss() {
-        dismiss(animated: true, completion: nil)
+        let _ = navigationController?.popViewController(animated: true)
     }
     
     
@@ -91,5 +103,10 @@ class NewAssetViewController : UIViewController, NewAssetViewControllerProtocol 
     
     func keyboardDidHide() {
         picImageViewHeightConstraint.constant = 200
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

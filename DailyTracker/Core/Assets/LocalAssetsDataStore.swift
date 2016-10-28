@@ -17,9 +17,9 @@ class LocalAssetsDataStore : AssetsDataStoreProtocol {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: Asset.entityName)
         
         do {
-            let results = try managedContext.execute(request) as! NSFetchRequestResult
+            let results = try managedContext.execute(request) as! NSAsynchronousFetchResult<NSFetchRequestResult>
             
-            if let assets = results as? [Asset] {
+            if let assets = results.finalResult as? [Asset] {
                 returner(assets.map({ asset -> AssetModel in
                     return AssetModel(with: asset)
                 }))
@@ -35,8 +35,6 @@ class LocalAssetsDataStore : AssetsDataStoreProtocol {
     
     
     func retrieve(byDate date: Date, with returner: AssetsReturner, orFailWith thrower: Thrower) {
-        
-        
         
     }
     

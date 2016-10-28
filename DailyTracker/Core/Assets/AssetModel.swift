@@ -48,6 +48,36 @@ class AssetModel : ModelProtocol {
     var whimpoints: Earning?
     
     
+    var purchaseYear: Int {
+        return Calendar.current.component(.year, from: buydate as! Date)
+    }
+    
+    
+    var expiringYear: Int {
+        return purchaseYear + (duration as! Int)
+    }
+    
+    
+    var points: Double {
+        let durationInDays = (duration! as Int) * 360
+        
+        let calendar = Calendar.current
+        
+        let date1 = calendar.startOfDay(for: buydate! as Date)
+        let date2 = calendar.startOfDay(for: Date())
+        
+        var flags = Set<Calendar.Component>()
+        flags.insert(Calendar.Component.day)
+        let components = calendar.dateComponents(flags, from: date1, to: date2)
+        
+        let lifedays = components.day
+        
+        let remaining = durationInDays - lifedays!
+        
+        return Double(remaining) / 360
+    }
+    
+    
     func coreDataVersion(with context: NSManagedObjectContext) -> Asset {
         let entity = NSEntityDescription.entity(forEntityName: Asset.entityName, in: context)
         

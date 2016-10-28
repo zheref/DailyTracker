@@ -13,6 +13,7 @@ class AssetsPresenter : PresenterProtocol {
     
     var vc: AssetsViewControllerProtocol?
     
+    var items = [AssetModel]()
     
     func attachView(view: AssetsViewControllerProtocol) {
         vc = view
@@ -20,7 +21,14 @@ class AssetsPresenter : PresenterProtocol {
     
     
     func onLoad() {
+        let dataStore = LocalAssetsDataStore()
         
+        dataStore.retrieveAll(with: { assets in
+            items = assets
+            vc?.reload()
+        }) { error in
+            print("Error: \(error)")
+        }
     }
     
     
@@ -30,7 +38,7 @@ class AssetsPresenter : PresenterProtocol {
     
     
     func afterAppear() {
-        
+        vc?.reload()
     }
     
 }

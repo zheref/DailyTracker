@@ -23,5 +23,5 @@ class KUris {
 }
 
 class KReuseIdentifiers {
-    
+    static let assetTableViewCell = "assetTableViewCell"
 }

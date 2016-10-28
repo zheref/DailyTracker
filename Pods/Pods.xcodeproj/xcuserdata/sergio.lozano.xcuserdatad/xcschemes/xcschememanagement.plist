@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-DailyTracker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Pods-DailyTrackerTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Pods-DailyTrackerUITests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Pods-Watch Extension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>Pods-Watch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>XCGLogger.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>255D2F43D5C8E34CBE8DD22F8CB1136F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8722CD5062F91DDB6CF86B203762DDF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C0961CBE1D9A5984CA6EC24C7226DA34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C44F8E03E5F6173C0DCD76145D275B79</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E00770EFE534EC22BD2F96ACEA8BA89A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EFFF9A7792C8714B32795B225F6777BB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
