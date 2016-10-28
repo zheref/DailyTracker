@@ -78,6 +78,25 @@ class AssetModel : ModelProtocol {
     }
     
     
+    var forecastedPrice: Decimal {
+        if let renewprice = renewprice {
+            return renewprice as Decimal
+        } else {
+            return paidprice!.decimalValue * Decimal(inflationFactor)
+        }
+    }
+    
+    
+    var inflationFactor: Double {
+        return Double(1 + (duration!.intValue / 10))
+    }
+    
+    
+    var whimPointsNeeded: Decimal {
+        return (forecastedPrice / K.CopPerPoint) * Decimal(points)
+    }
+    
+    
     func coreDataVersion(with context: NSManagedObjectContext) -> Asset {
         let entity = NSEntityDescription.entity(forEntityName: Asset.entityName, in: context)
         

@@ -25,3 +25,7 @@ class KUris {
 class KReuseIdentifiers {
     static let assetTableViewCell = "assetTableViewCell"
 }
+
+class K {
+    static let CopPerPoint: Decimal = 1600
+}

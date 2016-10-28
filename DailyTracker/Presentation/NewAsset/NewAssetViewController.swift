@@ -16,7 +16,8 @@ protocol NewAssetViewControllerProtocol : ViewProtocol {
 }
 
 
-class NewAssetViewController : UIViewController, UITextFieldDelegate, NewAssetViewControllerProtocol {
+class NewAssetViewController : UIViewController, UITextFieldDelegate, UINavigationControllerDelegate,
+        UIImagePickerControllerDelegate, NewAssetViewControllerProtocol {
     
     @IBOutlet weak var picImageView: UIImageView!
     @IBOutlet weak var assetTextField: UITextField!
@@ -34,7 +35,7 @@ class NewAssetViewController : UIViewController, UITextFieldDelegate, NewAssetVi
     @IBOutlet weak var picImageViewHeightConstraint: NSLayoutConstraint!
     
     var presenter = NewAssetPresenter()
-    
+    var imagePicker: UIImagePickerController?
     
     override func viewWillAppear(_ animated: Bool) {
         presenter.beforeAppear()
@@ -82,6 +83,10 @@ class NewAssetViewController : UIViewController, UITextFieldDelegate, NewAssetVi
         asset.adventure = adventureAbleSwitch.isOn
         asset.placestuck = placeStuckSwitch.isOn
         
+        if let selectedPic = picImageView.image {
+            asset.picture = UIImageJPEGRepresentation(selectedPic, 1.0) as NSData?
+        }
+        
         presenter.onSave(asset)
     }
     
@@ -109,4 +114,26 @@ class NewAssetViewController : UIViewController, UITextFieldDelegate, NewAssetVi
         textField.resignFirstResponder()
         return true
     }
+    
+    
+    @IBAction func onPictureButtonTouchUpInside(_ sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera) {
+            imagePicker = UIImagePickerController()
+            imagePicker!.delegate = self
+            imagePicker!.sourceType = UIImagePickerControllerSourceType.camera
+            imagePicker!.allowsEditing = false
+            present(imagePicker!, animated: true, completion: nil)
+        } else {
+            
+        }
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        picImageView.image = image
+        
+        imagePicker?.dismiss(animated: true, completion: nil)
+    }
+    
 }

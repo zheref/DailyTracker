@@ -71,3 +71,29 @@ enum CommonError : Error {
     case ParseError
     
 }
+
+
+class Math {
+    
+    static func xround(number: Double, toDecimals decimalsQuant: Int) -> Double {
+        var thousandFactor: Double = 1
+        
+        for _ in 1...decimalsQuant {
+            thousandFactor = thousandFactor * 10
+        }
+        
+        return Double(round(thousandFactor * number) / thousandFactor)
+    }
+    
+    
+//    static func xround(number: Decimal, toDecimals decimalsQuant: Int) -> Decimal {
+//        var thousandFactor: Double = 1
+//        
+//        for _ in 1...decimalsQuant {
+//            thousandFactor = thousandFactor * 10
+//        }
+//        
+//        return Decimal(round(Decimal(thousandFactor) * number) / thousandFactor)
+//    }
+    
+}
