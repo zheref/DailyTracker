@@ -11,10 +11,13 @@ import Foundation
 
 typealias GoalsReturner = ([GoalModel]) -> Void
 typealias DateReturner = (Date?) -> Void
+typealias DatesReturner = ([Date]) -> Void
 
 
 protocol GoalsDataStoreProtocol : DataStoreProtocol {
     
     func retrieveFirstDate(with returner: DateReturner, orFailWith thrower: ErrorThrower)
+    
+    func retrieveAvailableDates() -> [Date]
     
 }

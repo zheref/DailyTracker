@@ -12,6 +12,7 @@ import Foundation
 
 class KSegues {
     static let assetsToNewAsset = "assetsToNewAsset"
+    static let dayToNewGoal = "dayToNewGoal"
 }
 
 class KScene {
@@ -24,6 +25,7 @@ class KUris {
 
 class KReuseIdentifiers {
     static let assetTableViewCell = "assetTableViewCell"
+    static let dayVC = "dayVC"
 }
 
 class K {

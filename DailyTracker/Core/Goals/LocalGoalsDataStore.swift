@@ -13,6 +13,9 @@ import CoreData
 class LocalGoalsDataStore : GoalsDataStoreProtocol {
     
     
+    static let futureLapseInDays = 21
+    
+    
     static var shared: LocalGoalsDataStore = {
         return LocalGoalsDataStore()
     }()
@@ -23,6 +26,22 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
     
     func retrieveAll(with returner: GoalsReturner, orFailWith thrower: Thrower) {
         
+    }
+    
+    
+    func retrieveAvailableDates() -> [Date] {
+        let calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        var dates = [Date]()
+        let today = Date()
+        
+        var daysComponent = DateComponents()
+        
+        for days in 0...LocalGoalsDataStore.futureLapseInDays {
+            daysComponent.day = days
+            dates.append(calendar.date(byAdding: daysComponent, to: today)!)
+        }
+        
+        return dates
     }
     
     
@@ -48,6 +67,10 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
                     } else {
                         earliestDate = goal.creationDate as Date?
                     }
+                }
+                
+                if (earliestDate == nil) {
+                    earliestDate = Date()
                 }
                 
                 returner(earliestDate)

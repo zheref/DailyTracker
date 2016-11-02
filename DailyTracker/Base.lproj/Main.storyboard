@@ -13,7 +13,7 @@
         <scene sceneID="DLg-1p-NaS">
             <objects>
                 <navigationController id="ZyI-R3-Jhm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Assets" id="J87-pp-9GU"/>
+                    <tabBarItem key="tabBarItem" title="Assets" image="warehouse" id="J87-pp-9GU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="faf-gA-8h3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -42,7 +42,7 @@
                                     <frame key="frameInset" width="375" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q11-pC-OyR">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q11-pC-OyR">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="bco-Hy-Tev"/>
                                                 <constraint firstAttribute="width" secondItem="q11-pC-OyR" secondAttribute="height" multiplier="70:71" id="h0F-Eq-JLU"/>
@@ -357,17 +357,17 @@
         <!--Daily-->
         <scene sceneID="E4G-Wb-So8">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="qAD-et-x0J" customClass="DailyViewController" customModule="DailyTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Daily" id="egY-Rh-Q6r"/>
+                <pageViewController storyboardIdentifier="dailyVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="qAD-et-x0J" customClass="DailyViewController" customModule="DailyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Daily" image="calendar" id="egY-Rh-Q6r"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O33-r5-v6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1041" y="-207"/>
         </scene>
-        <!--View Controller-->
+        <!--Day View Controller-->
         <scene sceneID="fuQ-kf-30m">
             <objects>
-                <viewController storyboardIdentifier="dayVC" id="2TK-ej-929" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dayVC" id="2TK-ej-929" customClass="DayViewController" customModule="DailyTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ksS-M4-bXD"/>
                         <viewControllerLayoutGuide type="bottom" id="lDj-ci-sFt"/>
@@ -376,34 +376,158 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xanuary 32" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t3-7Y-osg">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3to-4Q-4ap">
-                                <state key="normal" title="Add"/>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QmH-zt-Fx1">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="raM-8U-IUE"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Wefresday, Xanuary 32" id="01X-VC-lLd">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xIE-jg-UqV">
+                                            <connections>
+                                                <action selector="onAddBarButtonAction:" destination="2TK-ej-929" id="GUT-pA-fOQ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jSl-Dh-ScT">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7t3-7Y-osg" firstAttribute="top" secondItem="ksS-M4-bXD" secondAttribute="bottom" id="Awl-T1-KhG"/>
-                            <constraint firstItem="3to-4Q-4ap" firstAttribute="centerY" secondItem="7t3-7Y-osg" secondAttribute="centerY" id="Km7-MP-0Bn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3to-4Q-4ap" secondAttribute="trailing" constant="-4" id="LsS-bQ-NjC"/>
-                            <constraint firstItem="jSl-Dh-ScT" firstAttribute="top" secondItem="7t3-7Y-osg" secondAttribute="bottom" constant="17" id="MFQ-u2-hgv"/>
+                            <constraint firstItem="QmH-zt-Fx1" firstAttribute="top" secondItem="ksS-M4-bXD" secondAttribute="bottom" id="3NZ-Q3-a9N"/>
+                            <constraint firstItem="QmH-zt-Fx1" firstAttribute="centerX" secondItem="fRk-gm-UZP" secondAttribute="centerX" id="ErY-kH-ZCw"/>
+                            <constraint firstItem="jSl-Dh-ScT" firstAttribute="top" secondItem="QmH-zt-Fx1" secondAttribute="bottom" id="HCF-QD-Bs8"/>
                             <constraint firstItem="lDj-ci-sFt" firstAttribute="top" secondItem="jSl-Dh-ScT" secondAttribute="bottom" constant="53" id="W7x-lJ-1l0"/>
-                            <constraint firstItem="7t3-7Y-osg" firstAttribute="centerX" secondItem="fRk-gm-UZP" secondAttribute="centerX" id="eTx-YC-21X"/>
+                            <constraint firstItem="QmH-zt-Fx1" firstAttribute="width" secondItem="fRk-gm-UZP" secondAttribute="width" id="g5X-5e-L62"/>
                             <constraint firstItem="jSl-Dh-ScT" firstAttribute="leading" secondItem="fRk-gm-UZP" secondAttribute="leadingMargin" constant="-16" id="jJf-k0-XU2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jSl-Dh-ScT" secondAttribute="trailing" constant="-16" id="mIx-WG-tgk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="QmH-zt-Fx1" id="xmr-pw-3g0"/>
+                        <outlet property="navigationItem" destination="01X-VC-lLd" id="Zlt-b7-3h3"/>
+                        <segue destination="Epf-u6-rgE" kind="show" identifier="dayToNewGoal" id="vrE-gI-pKW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IC7-l2-s4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2125.5999999999999" y="-207.34632683658174"/>
+        </scene>
+        <!--New Goal View Controller-->
+        <scene sceneID="fWM-xR-k2q">
+            <objects>
+                <viewController id="Epf-u6-rgE" customClass="NewGoalViewController" customModule="DailyTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IYI-C0-sPT"/>
+                        <viewControllerLayoutGuide type="bottom" id="hDh-nB-cwi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ur8-fM-IdW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New goal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t61-eR-87l">
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoP-s3-bSL">
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Every?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORP-7y-sXi">
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Explain what is it about..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DXY-cm-w3I">
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70I-RP-syp">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HvI-QS-hf2"/>
+                                    <constraint firstAttribute="width" constant="60" id="nnI-MM-W4y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="onCloseButtonTouchUpInside:" destination="Epf-u6-rgE" eventType="touchUpInside" id="1VH-XG-XCt"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GEr-nA-vDX">
+                                <date key="date" timeIntervalSinceReferenceDate="499805783.81190002">
+                                    <!--2016-11-02 18:56:23 +0000-->
+                                </date>
+                            </datePicker>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEU-QM-Xb3">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="121" id="dpp-jU-n6e"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKM-ka-S1T">
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="12"/>
+                                <state key="normal" title="CUSTOM">
+                                    <color key="titleColor" red="1" green="0.40739924634027558" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fx5-ep-CqG">
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="12"/>
+                                <state key="normal" title="CUSTOM">
+                                    <color key="titleColor" red="1" green="0.40739924630000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eu4-gM-e7i">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KXc-zw-o7u"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
+                                <state key="normal" title="F I N I S H"/>
+                                <connections>
+                                    <action selector="onFinishButtonTouchUpInside:" destination="Epf-u6-rgE" eventType="touchUpInside" id="Ume-nn-N7K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fx5-ep-CqG" firstAttribute="trailing" secondItem="DKM-ka-S1T" secondAttribute="trailing" id="0gi-lJ-kdZ"/>
+                            <constraint firstItem="GEr-nA-vDX" firstAttribute="top" secondItem="ZoP-s3-bSL" secondAttribute="bottom" constant="2.5" id="0l1-Im-6cZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DXY-cm-w3I" secondAttribute="trailing" id="1qn-DK-P4j"/>
+                            <constraint firstItem="KEU-QM-Xb3" firstAttribute="width" secondItem="Ur8-fM-IdW" secondAttribute="width" id="3F4-QP-UL9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="70I-RP-syp" secondAttribute="trailing" id="5rs-uh-n53"/>
+                            <constraint firstItem="DXY-cm-w3I" firstAttribute="leading" secondItem="t61-eR-87l" secondAttribute="leading" id="6XZ-cz-xtd"/>
+                            <constraint firstItem="KEU-QM-Xb3" firstAttribute="centerX" secondItem="Ur8-fM-IdW" secondAttribute="centerX" id="ALU-8a-yS2"/>
+                            <constraint firstItem="70I-RP-syp" firstAttribute="centerY" secondItem="t61-eR-87l" secondAttribute="centerY" id="H0K-HP-dbR"/>
+                            <constraint firstItem="ZoP-s3-bSL" firstAttribute="top" secondItem="DXY-cm-w3I" secondAttribute="bottom" constant="16" id="IRO-yo-Cp8"/>
+                            <constraint firstItem="t61-eR-87l" firstAttribute="top" secondItem="IYI-C0-sPT" secondAttribute="bottom" constant="8" id="Io7-A7-o4l"/>
+                            <constraint firstItem="DXY-cm-w3I" firstAttribute="top" secondItem="t61-eR-87l" secondAttribute="bottom" constant="7.5" id="J54-RL-AOZ"/>
+                            <constraint firstItem="eu4-gM-e7i" firstAttribute="top" secondItem="KEU-QM-Xb3" secondAttribute="bottom" constant="16" id="PTt-mo-BaZ"/>
+                            <constraint firstItem="DKM-ka-S1T" firstAttribute="centerY" secondItem="ZoP-s3-bSL" secondAttribute="centerY" id="W4p-Bh-cN3"/>
+                            <constraint firstItem="ORP-7y-sXi" firstAttribute="top" secondItem="GEr-nA-vDX" secondAttribute="bottom" constant="-4" id="XFy-CN-HaT"/>
+                            <constraint firstItem="eu4-gM-e7i" firstAttribute="centerX" secondItem="Ur8-fM-IdW" secondAttribute="centerX" id="bRq-JX-E8s"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="t61-eR-87l" secondAttribute="leading" id="c4X-yF-kpp"/>
+                            <constraint firstItem="eu4-gM-e7i" firstAttribute="width" secondItem="Ur8-fM-IdW" secondAttribute="width" id="d86-fg-1f7"/>
+                            <constraint firstItem="Fx5-ep-CqG" firstAttribute="centerY" secondItem="ORP-7y-sXi" secondAttribute="centerY" id="g1A-pG-Dat"/>
+                            <constraint firstItem="GEr-nA-vDX" firstAttribute="width" secondItem="Ur8-fM-IdW" secondAttribute="width" id="h9z-sK-LSO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DKM-ka-S1T" secondAttribute="trailing" constant="-8" id="jON-mL-ONy"/>
+                            <constraint firstItem="GEr-nA-vDX" firstAttribute="centerX" secondItem="Ur8-fM-IdW" secondAttribute="centerX" id="kLK-WY-tCJ"/>
+                            <constraint firstItem="KEU-QM-Xb3" firstAttribute="top" secondItem="ORP-7y-sXi" secondAttribute="bottom" constant="8" id="qa2-nE-pxI"/>
+                            <constraint firstItem="ORP-7y-sXi" firstAttribute="leading" secondItem="ZoP-s3-bSL" secondAttribute="leading" id="wi8-UV-ZBm"/>
+                            <constraint firstItem="ZoP-s3-bSL" firstAttribute="leading" secondItem="DXY-cm-w3I" secondAttribute="leading" id="wso-Np-viS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="everyPickerView" destination="KEU-QM-Xb3" id="X5n-03-cJL"/>
+                        <outlet property="goalTextField" destination="DXY-cm-w3I" id="1el-0Y-upk"/>
+                        <outlet property="whenDatePicker" destination="GEr-nA-vDX" id="VIK-w3-vzd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iRm-lW-g56" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3181.5999999999999" y="212.74362818590706"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="kwH-x3-Opf">
@@ -438,7 +562,7 @@
         <scene sceneID="Z4y-NJ-G2h">
             <objects>
                 <navigationController id="FEW-Zd-4sj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Me" id="MXq-bj-qTa"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="user" id="MXq-bj-qTa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="HGH-9e-yTz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -472,4 +596,9 @@
             <point key="canvasLocation" x="-466" y="-207"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="calendar" width="25" height="25"/>
+        <image name="user" width="25" height="25"/>
+        <image name="warehouse" width="25" height="25"/>
+    </resources>
 </document>
