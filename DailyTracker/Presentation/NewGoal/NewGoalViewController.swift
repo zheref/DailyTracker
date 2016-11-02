@@ -14,7 +14,7 @@ protocol NewGoalViewControllerProtocol : ViewProtocol {
 }
 
 
-class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol {
+class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, UITextFieldDelegate {
     
     @IBOutlet weak var goalTextField: UITextField!
     @IBOutlet weak var whenDatePicker: UIDatePicker!
@@ -27,9 +27,19 @@ class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol {
     override func viewDidLoad() {
         if let date = preselectedDate {
             whenDatePicker.date = date
+            whenDatePicker.minimumDate = date
         }
         
+        goalTextField.returnKeyType = .done
+        goalTextField.delegate = self
+        
         goalTextField.becomeFirstResponder()
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     
@@ -37,8 +47,10 @@ class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol {
         dismiss(animated: false, completion: nil)
     }
     
+    
     @IBAction func onFinishButtonTouchUpInside(_ sender: AnyObject) {
         
     }
+    
     
 }

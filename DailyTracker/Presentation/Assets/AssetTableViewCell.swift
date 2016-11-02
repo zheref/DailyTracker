@@ -34,7 +34,7 @@ class AssetTableViewCell : UITableViewCell {
         
         let paidprice = model.paidprice! as NSDecimalNumber
         
-        purchasePriceLabel.text = "$\(formatter.string(from: paidprice)!)"
+        purchasePriceLabel.text = "\(formatter.string(from: paidprice)!)"
         
         let forecastedPrice = model.forecastedPrice as NSDecimalNumber
         let whimPointsNeeded = model.whimPointsNeeded as NSDecimalNumber
