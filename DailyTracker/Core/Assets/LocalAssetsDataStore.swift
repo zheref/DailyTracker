@@ -34,6 +34,18 @@ class LocalAssetsDataStore : AssetsDataStoreProtocol {
     }
     
     
+    func delete(_ model: AssetModel, _ callback: Callback, orFailWith thrower: Thrower) {
+        managedContext.delete(model.originalCD!)
+        
+        do {
+            try managedContext.save()
+            callback()
+        } catch let error as NSError {
+            thrower(error)
+        }
+    }
+    
+    
     func retrieve(byDate date: Date, with returner: AssetsReturner, orFailWith thrower: Thrower) {
         
     }

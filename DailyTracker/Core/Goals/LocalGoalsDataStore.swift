@@ -11,6 +11,10 @@ import CoreData
 
 
 class LocalGoalsDataStore : GoalsDataStoreProtocol {
+    internal func delete(_ model: GoalModel, _ callback: () -> Void, orFailWith thrower: (Error) -> Void) {
+        
+    }
+
     
     
     static let futureLapseInDays = 21

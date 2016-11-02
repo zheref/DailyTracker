@@ -41,4 +41,17 @@ class AssetsPresenter : PresenterProtocol {
         vc?.reload()
     }
     
+    
+    func delete(itemAtIndex index: Int) {
+        let dataStore = LocalAssetsDataStore()
+        
+        dataStore.delete(items[index], {
+            print("Success deleting asset with name: \(items[index].kind)")
+            items.remove(at: index)
+            vc?.delete(rowAtIndex: index)
+        }, orFailWith: { error in
+            print("Error: \(error)")
+        })
+    }
+    
 }

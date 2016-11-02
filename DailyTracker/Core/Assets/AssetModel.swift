@@ -29,6 +29,8 @@ class AssetModel : ModelProtocol {
         savingtime = asset.savingtime
         picture = asset.picture
         whimpoints = asset.whimpoints
+        
+        originalCD = asset
     }
     
     
@@ -46,6 +48,8 @@ class AssetModel : ModelProtocol {
     var savingtime: NSNumber?
     var picture: NSData?
     var whimpoints: Earning?
+    
+    var originalCD: Asset?
     
     
     var purchaseYear: Int {

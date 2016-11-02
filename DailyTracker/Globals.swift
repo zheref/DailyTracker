@@ -54,6 +54,8 @@ protocol DataStoreProtocol : class {
     
     func insert(_ model: Model, _ callback: Callback, orFailWith thrower: Thrower)
     
+    func delete(_ model: Model, _ callback: Callback, orFailWith thrower: Thrower)
+    
 }
 
 
