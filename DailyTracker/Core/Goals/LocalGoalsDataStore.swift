@@ -29,7 +29,23 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
     
     
     func retrieveAll(with returner: GoalsReturner, orFailWith thrower: Thrower) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: Goal.entityName)
         
+        do {
+            let results = try managedContext.execute(request) as! NSAsynchronousFetchResult<NSFetchRequestResult>
+            
+            if let goals = results.finalResult as? [Goal] {
+                returner(goals.map({ goal -> GoalModel in
+                    return GoalModel(with: goal)
+                }))
+            } else {
+                print("Error: COULD NOT PARSE MANAGEDOBJECTS INTO GOALS")
+                thrower(CommonError.ParseError)
+            }
+        } catch let error as NSError {
+            print("Error: \(error)")
+            thrower(error)
+        }
     }
     
     
@@ -91,7 +107,14 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
     
     
     func insert(_ model: GoalModel, _ callback: Callback, orFailWith thrower: Thrower) {
+        let _ = model.coreDataVersion(with: managedContext)
         
+        do {
+            try managedContext.save()
+            callback()
+        } catch let error as NSError {
+            thrower(error)
+        }
     }
     
     

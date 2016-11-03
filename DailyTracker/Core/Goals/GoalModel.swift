@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 
 class GoalModel : ModelProtocol {
@@ -43,5 +44,25 @@ class GoalModel : ModelProtocol {
     var parent: Goal?
     var user: User?
     var records: NSSet?
+    
+    
+    var originalCD: Goal?
+    
+    
+    func coreDataVersion(with context: NSManagedObjectContext) -> Goal {
+        let entity = NSEntityDescription.entity(forEntityName: Goal.entityName, in: context)
+        
+        let goal = NSManagedObject(entity: entity!, insertInto: context) as! Goal
+        
+        goal.setValue(creationDate, forKey: "creationDate")
+        goal.setValue(expiringDate, forKey: "expiringDate")
+        goal.setValue(lastUpdateDate, forKey: "lastUpdateDate")
+        goal.setValue(reminder, forKey: "reminder")
+        goal.setValue(remindPattern, forKey: "remindPattern")
+        goal.setValue(`repeat`, forKey: "repeat")
+        goal.setValue(text, forKey: "text")
+        
+        return goal
+    }
     
 }

@@ -585,6 +585,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="ZyI-R3-Jhm" kind="relationship" relationship="viewControllers" id="PnP-iR-2Nf"/>
                         <segue destination="qAD-et-x0J" kind="relationship" relationship="viewControllers" id="JeH-Ta-cqr"/>

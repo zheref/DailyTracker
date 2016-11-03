@@ -11,10 +11,13 @@ import UIKit
 
 protocol NewGoalViewControllerProtocol : ViewProtocol {
     
+    func dismiss()
+    
 }
 
 
-class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, UITextFieldDelegate {
+class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, UITextFieldDelegate,
+    UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var goalTextField: UITextField!
     @IBOutlet weak var whenDatePicker: UIDatePicker!
@@ -23,8 +26,13 @@ class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, U
     
     var preselectedDate: Date?
     
+    var presenter = NewGoalPresenter()
+    
     
     override func viewDidLoad() {
+        everyPickerView.dataSource = self
+        everyPickerView.delegate = self
+        
         if let date = preselectedDate {
             whenDatePicker.date = date
             whenDatePicker.minimumDate = date
@@ -34,6 +42,8 @@ class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, U
         goalTextField.delegate = self
         
         goalTextField.becomeFirstResponder()
+        
+        
     }
     
     
@@ -44,12 +54,41 @@ class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, U
     
     
     @IBAction func onCloseButtonTouchUpInside(_ sender: AnyObject) {
-        dismiss(animated: false, completion: nil)
+        dismiss()
+    }
+    
+    
+    func dismiss() {
+        dismiss(animated: true, completion: nil)
     }
     
     
     @IBAction func onFinishButtonTouchUpInside(_ sender: AnyObject) {
+        let model = GoalModel()
         
+        model.creationDate = Date() as NSDate
+        model.lastUpdateDate = model.creationDate
+        model.reminder = whenDatePicker.date as NSDate
+        model.repeat = 21
+        
+        let selectedPatternIndex = everyPickerView.selectedRow(inComponent: 0)
+        model.remindPattern = presenter.repeatPatterns[selectedPatternIndex]["code"]
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return presenter.repeatPatterns.count
+    }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let item = presenter.repeatPatterns[row]
+        return "\(item["label"]!) [\(item["code"]!)]"
     }
     
     
