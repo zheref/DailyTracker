@@ -13,4 +13,6 @@ import CoreData
 @objc(User)
 public class User: NSManagedObject {
 
+    static let entityName = "User"
+    
 }

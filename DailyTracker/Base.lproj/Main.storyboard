@@ -392,6 +392,36 @@
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jSl-Dh-ScT">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="goalTableViewCell" textLabel="PKR-mz-K2x" detailTextLabel="Ox0-Iy-0xU" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="B2A-FV-HaF">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B2A-FV-HaF" id="xI5-am-DGc">
+                                            <frame key="frameInset" width="336" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PKR-mz-K2x">
+                                                    <frame key="frameInset" minX="15" minY="13" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ox0-Iy-0xU">
+                                                    <frame key="frameInset" minX="15" minY="33.5" width="33" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2TK-ej-929" id="z6L-Mg-qRu"/>
+                                    <outlet property="delegate" destination="2TK-ej-929" id="2R6-mk-Avp"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -406,6 +436,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="goalsTableView" destination="jSl-Dh-ScT" id="Xh2-EN-Qld"/>
                         <outlet property="navigationBar" destination="QmH-zt-Fx1" id="xmr-pw-3g0"/>
                         <outlet property="navigationItem" destination="01X-VC-lLd" id="Zlt-b7-3h3"/>
                         <segue destination="Epf-u6-rgE" kind="show" identifier="dayToNewGoal" id="vrE-gI-pKW"/>

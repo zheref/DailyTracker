@@ -13,4 +13,6 @@ import CoreData
 @objc(Category)
 public class Category: NSManagedObject {
 
+    static let entityName = "Category"
+    
 }

@@ -62,6 +62,8 @@ class GoalModel : ModelProtocol {
         goal.setValue(`repeat`, forKey: "repeat")
         goal.setValue(text, forKey: "text")
         
+        self.originalCD = goal
+        
         return goal
     }
     

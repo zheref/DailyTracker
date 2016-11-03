@@ -25,6 +25,7 @@ class KUris {
 
 class KReuseIdentifiers {
     static let assetTableViewCell = "assetTableViewCell"
+    static let goalTableViewCell = "goalTableViewCell"
     static let dayVC = "dayVC"
 }
 

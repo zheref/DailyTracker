@@ -73,6 +73,8 @@ class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, U
         
         let selectedPatternIndex = everyPickerView.selectedRow(inComponent: 0)
         model.remindPattern = presenter.repeatPatterns[selectedPatternIndex]["code"]
+        
+        presenter.onSave(model)
     }
     
     

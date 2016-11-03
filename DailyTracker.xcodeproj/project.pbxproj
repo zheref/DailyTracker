@@ -59,6 +59,9 @@
 		9DD0A82F1DBFFEDE0069B8CA /* AssetsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0A82E1DBFFEDE0069B8CA /* AssetsPresenter.swift */; };
 		9DD0A8311DBFFEEB0069B8CA /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0A8301DBFFEEB0069B8CA /* AssetsViewController.swift */; };
 		9DD0A8331DBFFF090069B8CA /* AssetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0A8321DBFFF090069B8CA /* AssetTableViewCell.swift */; };
+		9DDC0DFC1DCB972700497165 /* DayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC0DFB1DCB972700497165 /* DayPresenter.swift */; };
+		9DDC0DFF1DCBD33B00497165 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC0DFE1DCBD33B00497165 /* CategoryModel.swift */; };
+		9DDC0E011DCBE4C000497165 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDC0E001DCBE4C000497165 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +186,9 @@
 		9DD0A82E1DBFFEDE0069B8CA /* AssetsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetsPresenter.swift; path = Presentation/Assets/AssetsPresenter.swift; sourceTree = "<group>"; };
 		9DD0A8301DBFFEEB0069B8CA /* AssetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetsViewController.swift; path = Presentation/Assets/AssetsViewController.swift; sourceTree = "<group>"; };
 		9DD0A8321DBFFF090069B8CA /* AssetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AssetTableViewCell.swift; path = Presentation/Assets/AssetTableViewCell.swift; sourceTree = "<group>"; };
+		9DDC0DFB1DCB972700497165 /* DayPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayPresenter.swift; path = Presentation/Day/DayPresenter.swift; sourceTree = "<group>"; };
+		9DDC0DFE1DCBD33B00497165 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = Core/Categories/CategoryModel.swift; sourceTree = "<group>"; };
+		9DDC0E001DCBE4C000497165 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserModel.swift; path = Core/Users/UserModel.swift; sourceTree = "<group>"; };
 		A00A90F4190A8FD05F7373C5 /* Pods-DailyTrackerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyTrackerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyTrackerUITests/Pods-DailyTrackerUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AFD80AC65911C775ECA3B111 /* Pods-Watch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Watch.release.xcconfig"; path = "Pods/Target Support Files/Pods-Watch/Pods-Watch.release.xcconfig"; sourceTree = "<group>"; };
 		BECF3F676083A4C7CB5FB5AC /* Pods_Watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -341,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				9D3C2EB41DC7EC7300395DBE /* DayViewController.swift */,
+				9DDC0DFB1DCB972700497165 /* DayPresenter.swift */,
 			);
 			name = Day;
 			sourceTree = "<group>";
@@ -419,6 +426,7 @@
 		9DA88BB81DBAB42200BA6DF6 /* Users */ = {
 			isa = PBXGroup;
 			children = (
+				9DDC0E001DCBE4C000497165 /* UserModel.swift */,
 				9DA88BC11DBAB48300BA6DF6 /* CoreData */,
 			);
 			name = Users;
@@ -427,6 +435,7 @@
 		9DA88BB91DBAB42900BA6DF6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				9DDC0DFE1DCBD33B00497165 /* CategoryModel.swift */,
 				9DA88BBD1DBAB44B00BA6DF6 /* CoreData */,
 			);
 			name = Categories;
@@ -720,10 +729,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC713CC1DC26C8A00819F8C /* DailyTracker.xcdatamodeld in Resources */,
 				2B21324B1D6B57C900266ACB /* LaunchScreen.storyboard in Resources */,
 				2B2132481D6B57C900266ACB /* Assets.xcassets in Resources */,
 				2B2132431D6B57C900266ACB /* Main.storyboard in Resources */,
+				9DC713CC1DC26C8A00819F8C /* DailyTracker.xcdatamodeld in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,11 +1005,13 @@
 				9D1B08511DBEBA0700CA6350 /* DailyPresenter.swift in Sources */,
 				9DA88BB71DBAB3DD00BA6DF6 /* Goal+CoreDataProperties.swift in Sources */,
 				2B2132401D6B57C900266ACB /* ViewController.swift in Sources */,
+				9DDC0DFF1DCBD33B00497165 /* CategoryModel.swift in Sources */,
 				9D4606841DC10A8D0061651F /* AssetsDataStoreProtocol.swift in Sources */,
 				9DD0A8231DBFBDC00069B8CA /* Konstants.swift in Sources */,
 				9DD0A8291DBFC2610069B8CA /* GoalModel.swift in Sources */,
 				9DD0A8271DBFC2190069B8CA /* LocalGoalsDataStore.swift in Sources */,
 				9DD0A8251DBFC0840069B8CA /* GoalsDataStoreProtocol.swift in Sources */,
+				9DDC0DFC1DCB972700497165 /* DayPresenter.swift in Sources */,
 				2B21323E1D6B57C900266ACB /* AppDelegate.swift in Sources */,
 				9DA88BAF1DBAB3DD00BA6DF6 /* Asset+CoreDataProperties.swift in Sources */,
 				9DA88BB61DBAB3DD00BA6DF6 /* Goal+CoreDataClass.swift in Sources */,
@@ -1010,6 +1021,7 @@
 				9D46068B1DC123170061651F /* NewAssetViewController.swift in Sources */,
 				9DA88BAC1DBAB3DD00BA6DF6 /* User+CoreDataClass.swift in Sources */,
 				9DA88BAD1DBAB3DD00BA6DF6 /* User+CoreDataProperties.swift in Sources */,
+				9DDC0E011DCBE4C000497165 /* UserModel.swift in Sources */,
 				9DD0A8311DBFFEEB0069B8CA /* AssetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1191,6 +1203,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AQUE4FE98B;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = DailyTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1208,6 +1221,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AQUE4FE98B;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				INFOPLIST_FILE = DailyTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
