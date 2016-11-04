@@ -107,14 +107,46 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
     
     
     func insert(_ model: GoalModel, _ callback: Callback, orFailWith thrower: Thrower) {
-        let _ = model.coreDataVersion(with: managedContext)
         
-        do {
-            try managedContext.save()
-            callback()
-        } catch let error as NSError {
-            thrower(error)
-        }
+        var theUser: User?
+        var theCategory: Category?
+        
+        LocalUsersDataStore.shared.getDefault(with: { user in
+            
+            theUser = user.originalCD!
+            
+            LocalCategoriesDataStore.shared.getDefault(with: { category in
+                
+                theCategory = category.originalCD!
+                
+                let entity = NSEntityDescription.entity(forEntityName: Goal.entityName, in: managedContext)
+                let cd = NSManagedObject(entity: entity!, insertInto: managedContext) as! Goal
+                
+                cd.setValue(theUser, forKey: "user")
+                cd.setValue(theCategory, forKey: "category")
+                
+                cd.setValue(model.creationDate, forKey: "creationDate")
+                cd.setValue(model.expiringDate, forKey: "expiringDate")
+                cd.setValue(model.lastUpdateDate, forKey: "lastUpdateDate")
+                cd.setValue(model.reminder, forKey: "reminder")
+                cd.setValue(model.remindPattern, forKey: "remindPattern")
+                cd.setValue(model.repeat, forKey: "repeat")
+                cd.setValue(model.text, forKey: "text")
+                
+                cd.setValue(NSSet(), forKey: "children")
+                cd.setValue(NSSet(), forKey: "records")
+                
+                do {
+                    model.originalCD = cd
+                    try managedContext.save()
+                    callback()
+                } catch let error as NSError {
+                    thrower(error)
+                }
+                
+            }, orFailWith: thrower)
+            
+        }, orFailWith: thrower)
     }
     
     

@@ -87,15 +87,4 @@ class Math {
         return Double(round(thousandFactor * number) / thousandFactor)
     }
     
-    
-//    static func xround(number: Decimal, toDecimals decimalsQuant: Int) -> Decimal {
-//        var thousandFactor: Double = 1
-//        
-//        for _ in 1...decimalsQuant {
-//            thousandFactor = thousandFactor * 10
-//        }
-//        
-//        return Decimal(round(Decimal(thousandFactor) * number) / thousandFactor)
-//    }
-    
 }

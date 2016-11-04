@@ -27,18 +27,4 @@ class CategoryModel : ModelProtocol {
         self.originalCD = category
     }
     
-    
-    func createCoreDataVersion(with context: NSManagedObjectContext) -> Category {
-        let entity = NSEntityDescription.entity(forEntityName: Category.entityName, in: context)
-        
-        let category = NSManagedObject(entity: entity!, insertInto: context) as! Category
-        
-        category.setValue(name, forKey: "name")
-        category.setValue(NSSet(), forKey: "goals")
-        
-        originalCD = category
-        
-        return category
-    }
-    
 }

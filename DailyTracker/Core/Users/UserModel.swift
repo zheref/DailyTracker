@@ -31,19 +31,4 @@ class UserModel : ModelProtocol {
         originalCD = user
     }
     
-    
-    func createCoreDataVersion(with context: NSManagedObjectContext) -> User {
-        let entity = NSEntityDescription.entity(forEntityName: User.entityName, in: context)
-        
-        let user = NSManagedObject(entity: entity!, insertInto: context) as! User
-        
-        user.setValue(name, forKey: "name")
-        user.setValue(email, forKey: "email")
-        user.setValue(NSSet(), forKey: "goals")
-        
-        originalCD = user
-        
-        return user
-    }
-    
 }

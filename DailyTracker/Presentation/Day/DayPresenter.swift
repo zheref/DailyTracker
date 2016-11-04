@@ -25,7 +25,7 @@ class DayPresenter : PresenterProtocol {
     }
     
     
-    func onLoad() {
+    private func reloadData() {
         LocalGoalsDataStore.shared.retrieveAll(with: { goals in
             items = goals
             vc?.reload()
@@ -35,13 +35,18 @@ class DayPresenter : PresenterProtocol {
     }
     
     
+    func onLoad() {
+        reloadData()
+    }
+    
+    
     func beforeAppear() {
         
     }
     
     
     func afterAppear() {
-        
+        reloadData()
     }
     
 }

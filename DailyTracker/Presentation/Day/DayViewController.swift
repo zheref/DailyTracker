@@ -49,6 +49,13 @@ class DayViewController : UIViewController, DayViewControllerProtocol,
     }
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        presenter.afterAppear()
+    }
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let showingVC = segue.destination as? NewGoalViewController {
             showingVC.preselectedDate = currentDay

@@ -30,6 +30,11 @@ class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, U
     
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        presenter.attachView(view: self)
+        presenter.onLoad()
+        
         everyPickerView.dataSource = self
         everyPickerView.delegate = self
         
@@ -70,6 +75,7 @@ class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, U
         model.lastUpdateDate = model.creationDate
         model.reminder = whenDatePicker.date as NSDate
         model.repeat = 21
+        model.text = goalTextField.text
         
         let selectedPatternIndex = everyPickerView.selectedRow(inComponent: 0)
         model.remindPattern = presenter.repeatPatterns[selectedPatternIndex]["code"]

@@ -29,7 +29,7 @@ class NewGoalPresenter : PresenterProtocol {
     
     
     func attachView(view: NewGoalViewControllerProtocol) {
-        
+        vc = view
     }
     
     

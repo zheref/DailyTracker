@@ -48,23 +48,4 @@ class GoalModel : ModelProtocol {
     
     var originalCD: Goal?
     
-    
-    func coreDataVersion(with context: NSManagedObjectContext) -> Goal {
-        let entity = NSEntityDescription.entity(forEntityName: Goal.entityName, in: context)
-        
-        let goal = NSManagedObject(entity: entity!, insertInto: context) as! Goal
-        
-        goal.setValue(creationDate, forKey: "creationDate")
-        goal.setValue(expiringDate, forKey: "expiringDate")
-        goal.setValue(lastUpdateDate, forKey: "lastUpdateDate")
-        goal.setValue(reminder, forKey: "reminder")
-        goal.setValue(remindPattern, forKey: "remindPattern")
-        goal.setValue(`repeat`, forKey: "repeat")
-        goal.setValue(text, forKey: "text")
-        
-        self.originalCD = goal
-        
-        return goal
-    }
-    
 }
