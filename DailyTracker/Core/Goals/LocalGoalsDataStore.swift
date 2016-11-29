@@ -11,13 +11,6 @@ import CoreData
 
 
 class LocalGoalsDataStore : GoalsDataStoreProtocol {
-    internal func delete(_ model: GoalModel, _ callback: () -> Void, orFailWith thrower: (Error) -> Void) {
-        
-    }
-
-    
-    
-    static let futureLapseInDays = 21
     
     
     static var shared: LocalGoalsDataStore = {
@@ -28,11 +21,24 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
     private init() {}
     
     
+    func delete(_ model: GoalModel, _ callback: () -> Void, orFailWith thrower: (Error) -> Void) {
+        managedContext.delete(model.originalCD!)
+        
+        do {
+            try managedContext.save()
+            callback()
+        } catch let error as NSError {
+            thrower(error)
+        }
+    }
+    
+    
     func retrieveAll(with returner: GoalsReturner, orFailWith thrower: Thrower) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: Goal.entityName)
         
         do {
-            let results = try managedContext.execute(request) as! NSAsynchronousFetchResult<NSFetchRequestResult>
+            let results = try managedContext.execute(request)
+                as! NSAsynchronousFetchResult<NSFetchRequestResult>
             
             if let goals = results.finalResult as? [Goal] {
                 returner(goals.map({ goal -> GoalModel in
@@ -56,7 +62,7 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
         
         var daysComponent = DateComponents()
         
-        for days in 0...LocalGoalsDataStore.futureLapseInDays {
+        for days in 0...K.futureLapseInDays {
             daysComponent.day = days
             dates.append(calendar.date(byAdding: daysComponent, to: today)!)
         }
@@ -107,7 +113,6 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
     
     
     func insert(_ model: GoalModel, _ callback: Callback, orFailWith thrower: Thrower) {
-        
         var theUser: User?
         var theCategory: Category?
         
@@ -119,7 +124,8 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
                 
                 theCategory = category.originalCD!
                 
-                let entity = NSEntityDescription.entity(forEntityName: Goal.entityName, in: managedContext)
+                let entity = NSEntityDescription.entity(forEntityName: Goal.entityName,
+                                                        in: managedContext)
                 let cd = NSManagedObject(entity: entity!, insertInto: managedContext) as! Goal
                 
                 cd.setValue(theUser, forKey: "user")
@@ -129,9 +135,10 @@ class LocalGoalsDataStore : GoalsDataStoreProtocol {
                 cd.setValue(model.expiringDate, forKey: "expiringDate")
                 cd.setValue(model.lastUpdateDate, forKey: "lastUpdateDate")
                 cd.setValue(model.reminder, forKey: "reminder")
-                cd.setValue(model.remindPattern, forKey: "remindPattern")
-                cd.setValue(model.repeat, forKey: "repeat")
+                cd.setValue(model.repeatPattern.rawValue, forKey: "remindPattern")
+                cd.setValue(model.repetitions, forKey: "repetitions")
                 cd.setValue(model.text, forKey: "text")
+                
                 
                 cd.setValue(NSSet(), forKey: "children")
                 cd.setValue(NSSet(), forKey: "records")

@@ -69,16 +69,11 @@ class NewGoalViewController : UIViewController, NewGoalViewControllerProtocol, U
     
     
     @IBAction func onFinishButtonTouchUpInside(_ sender: AnyObject) {
-        let model = GoalModel()
-        
-        model.creationDate = Date() as NSDate
-        model.lastUpdateDate = model.creationDate
-        model.reminder = whenDatePicker.date as NSDate
-        model.repeat = 21
-        model.text = goalTextField.text
+        let model = GoalModel(goalTextField.text!, on: whenDatePicker.date)
         
         let selectedPatternIndex = everyPickerView.selectedRow(inComponent: 0)
-        model.remindPattern = presenter.repeatPatterns[selectedPatternIndex]["code"]
+        let repeatPatternStr = presenter.repeatPatterns[selectedPatternIndex]["code"]!
+        model.repeatPattern = RepeatPattern(rawValue: repeatPatternStr)!
         
         presenter.onSave(model)
     }

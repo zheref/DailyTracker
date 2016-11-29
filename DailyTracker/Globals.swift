@@ -87,4 +87,9 @@ class Math {
         return Double(round(thousandFactor * number) / thousandFactor)
     }
     
+    
+    static func isInteger(_ number: Double) -> Bool {
+        return floor(number) == number
+    }
+    
 }

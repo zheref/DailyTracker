@@ -29,7 +29,12 @@ class DayViewController : UIViewController, DayViewControllerProtocol,
     
     
     var presenter = DayPresenter()
-    var currentDay: Date!
+    
+    var currentDay: Date! {
+        didSet {
+            presenter.currentDate = currentDay
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -95,7 +100,7 @@ class DayViewController : UIViewController, DayViewControllerProtocol,
         
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "H:mm"
-        let time = timeFormatter.string(from: item.reminder! as Date)
+        let time = timeFormatter.string(from: item.reminder as Date)
         
         cell!.detailTextLabel?.text = "\(time)"
         
@@ -110,6 +115,13 @@ class DayViewController : UIViewController, DayViewControllerProtocol,
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter.delete(itemAtIndex: indexPath.row)
+        }
     }
 
     

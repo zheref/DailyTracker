@@ -33,4 +33,5 @@ class K {
     static let DefaultEmail = "notidentified@21days.com"
     static let DefaultCategory = "Default"
     static let CopPerPoint: Decimal = 1600
+    static let futureLapseInDays = 21
 }

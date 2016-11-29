@@ -1,9 +1,9 @@
 //
 //  Goal+CoreDataProperties.swift
-//  DailyTracker
+//  
 //
-//  Created by Sergio Daniel Lozano on 10/21/16.
-//  Copyright © 2016 zheref. All rights reserved.
+//  Created by Sergio Daniel Lozano on 11/16/16.
+//
 //  This file was automatically generated and should not be edited.
 //
 
@@ -22,13 +22,14 @@ extension Goal {
     @NSManaged public var lastUpdateDate: NSDate?
     @NSManaged public var reminder: NSDate?
     @NSManaged public var remindPattern: String?
-    @NSManaged public var `repeat`: NSNumber?
+    @NSManaged public var repetitions: NSNumber?
     @NSManaged public var text: String?
+    @NSManaged public var points: NSNumber?
     @NSManaged public var category: Category?
     @NSManaged public var children: NSSet?
     @NSManaged public var parent: Goal?
-    @NSManaged public var user: User?
     @NSManaged public var records: NSSet?
+    @NSManaged public var user: User?
 
 }
 

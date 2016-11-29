@@ -16,6 +16,8 @@ class DayPresenter : PresenterProtocol {
     var vc: DayViewControllerProtocol?
     var items = [GoalModel]()
     
+    var currentDate: Date!
+    
     
     // MARK: EXPOSURE OPERATIONS
     
@@ -27,7 +29,9 @@ class DayPresenter : PresenterProtocol {
     
     private func reloadData() {
         LocalGoalsDataStore.shared.retrieveAll(with: { goals in
-            items = goals
+            items = goals.filter({ goal -> Bool in
+                return goal.valid(on: currentDate)
+            })
             vc?.reload()
         }, orFailWith: { error in
             print("Error: \(error)")
@@ -47,6 +51,17 @@ class DayPresenter : PresenterProtocol {
     
     func afterAppear() {
         reloadData()
+    }
+    
+    
+    func delete(itemAtIndex index: Int) {
+        LocalGoalsDataStore.shared.delete(items[index], {
+            print("Success deleting goal with name: \(items[index].text)")
+            items.remove(at: index)
+            vc?.delete(rowAtIndex: index)
+        }, orFailWith: { error in
+            print("Error: \(error)")
+        })
     }
     
 }
