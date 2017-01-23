@@ -94,15 +94,19 @@ class DayViewController : UIViewController, DayViewControllerProtocol,
             cell!.selectionStyle = .default
         }
         
+        guard let goalCell = cell as? GoalTableViewCell else {
+            return GoalTableViewCell(style: .default, reuseIdentifier: KReuseIdentifiers.goalTableViewCell)
+        }
+        
         let item = presenter.items[indexPath.row]
         
-        cell!.textLabel?.text = item.text!
+        goalCell.goalDescriptionLabel.text = item.model.text!
         
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "H:mm"
-        let time = timeFormatter.string(from: item.reminder as Date)
+        let time = timeFormatter.string(from: item.model.reminder as Date)
         
-        cell!.detailTextLabel?.text = "\(time)"
+        goalCell.timeLabel.text = "\(time)"
         
         return cell!
     }
@@ -114,7 +118,8 @@ class DayViewController : UIViewController, DayViewControllerProtocol,
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        let item = presenter.items[indexPath.row]
+        return item.expanded ? 80 : 50
     }
     
     
@@ -122,6 +127,13 @@ class DayViewController : UIViewController, DayViewControllerProtocol,
         if editingStyle == .delete {
             presenter.delete(itemAtIndex: indexPath.row)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.beginUpdates()
+        let item = presenter.items[indexPath.row]
+        item.expanded = !item.expanded
+        tableView.endUpdates()
     }
 
     

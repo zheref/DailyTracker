@@ -17,20 +17,6 @@ extension Goal {
         return NSFetchRequest<Goal>(entityName: "Goal");
     }
 
-    @NSManaged public var creationDate: NSDate?
-    @NSManaged public var expiringDate: NSDate?
-    @NSManaged public var lastUpdateDate: NSDate?
-    @NSManaged public var reminder: NSDate?
-    @NSManaged public var remindPattern: String?
-    @NSManaged public var repetitions: NSNumber?
-    @NSManaged public var text: String?
-    @NSManaged public var points: NSNumber?
-    @NSManaged public var category: Category?
-    @NSManaged public var children: NSSet?
-    @NSManaged public var parent: Goal?
-    @NSManaged public var records: NSSet?
-    @NSManaged public var user: User?
-
 }
 
 // MARK: Generated accessors for children

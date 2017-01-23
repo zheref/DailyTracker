@@ -15,4 +15,10 @@ public class User: NSManagedObject {
 
     static let entityName = "User"
     
+    @NSManaged public var name: String?
+    @NSManaged public var email: String?
+    @NSManaged public var goals: NSSet?
+    @NSManaged public var newRelationship: User?
+    @NSManaged public var newRelationship1: User?
+    
 }

@@ -13,4 +13,7 @@ import CoreData
 @objc(Record)
 public class Record: NSManagedObject {
 
+    @NSManaged public var datetime: NSDate?
+    @NSManaged public var goal: Goal?
+    
 }

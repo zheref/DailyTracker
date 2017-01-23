@@ -17,7 +17,4 @@ extension Record {
         return NSFetchRequest<Record>(entityName: "Record");
     }
 
-    @NSManaged public var datetime: NSDate?
-    @NSManaged public var goal: Goal?
-
 }

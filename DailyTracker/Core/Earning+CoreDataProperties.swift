@@ -17,8 +17,4 @@ extension Earning {
         return NSFetchRequest<Earning>(entityName: "Earning");
     }
 
-    @NSManaged public var points: NSNumber?
-    @NSManaged public var date: NSDate?
-    @NSManaged public var spend: Asset?
-
 }

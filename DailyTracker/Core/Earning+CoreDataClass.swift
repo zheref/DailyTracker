@@ -13,4 +13,8 @@ import CoreData
 @objc(Earning)
 public class Earning: NSManagedObject {
 
+    @NSManaged public var date: NSDate?
+    @NSManaged public var points: NSNumber?
+    @NSManaged public var spend: Asset?
+    
 }

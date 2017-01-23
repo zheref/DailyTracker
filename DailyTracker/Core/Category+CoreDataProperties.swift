@@ -17,9 +17,6 @@ extension Category {
         return NSFetchRequest<Category>(entityName: "Category");
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var goals: NSSet?
-
 }
 
 // MARK: Generated accessors for goals

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0A4A9B13C3B6A3981CDB07 /* Pods_Watch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174EA4F587D556EF70B3D7E7 /* Pods_Watch.framework */; };
 		0E12BAE63D082189BEB66BA9 /* Pods_DailyTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFBFDC961C33617136E6BB6C /* Pods_DailyTracker.framework */; };
 		1B37EB45C987D387854001F7 /* Pods_DailyTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228CFF1F689AD6777BD84E93 /* Pods_DailyTrackerTests.framework */; };
 		2B21323E1D6B57C900266ACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21323D1D6B57C900266ACB /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 		2B2132561D6B57C900266ACB /* DailyTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2132551D6B57C900266ACB /* DailyTrackerTests.swift */; };
 		2B2132611D6B57C900266ACB /* DailyTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2132601D6B57C900266ACB /* DailyTrackerUITests.swift */; };
 		55B92B99ED55D608A48CE52B /* Pods_DailyTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB849E4848A148598DF08855 /* Pods_DailyTrackerUITests.framework */; };
+		6F76BD32B0ED7227F9D29EFF /* Pods_Watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BECF3F676083A4C7CB5FB5AC /* Pods_Watch_Extension.framework */; };
 		9D0DDE0B1DCCDE8300C6156B /* CategoriesDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DDE0A1DCCDE8300C6156B /* CategoriesDataStoreProtocol.swift */; };
 		9D0DDE0D1DCCDEAA00C6156B /* LocalCategoriesDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DDE0C1DCCDEAA00C6156B /* LocalCategoriesDataStore.swift */; };
 		9D0DDE0F1DCCE77300C6156B /* UsersDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DDE0E1DCCE77300C6156B /* UsersDataStoreProtocol.swift */; };
@@ -25,13 +27,14 @@
 		9D1B08531DBEBA2000CA6350 /* DailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1B08521DBEBA2000CA6350 /* DailyViewController.swift */; };
 		9D2A77931DDCCD5800110D8C /* Goal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A77911DDCCD5800110D8C /* Goal+CoreDataClass.swift */; };
 		9D2A77941DDCCD5800110D8C /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A77921DDCCD5800110D8C /* Goal+CoreDataProperties.swift */; };
-		9D2A77961DDCD2AF00110D8C /* DailyTracker.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 2B2132441D6B57C900266ACB /* DailyTracker.xcdatamodeld */; };
+		9D36ED881E368CDB00A131D9 /* DailyTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B2132441D6B57C900266ACB /* DailyTracker.xcdatamodeld */; };
 		9D3C2EB51DC7EC7300395DBE /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3C2EB41DC7EC7300395DBE /* DayViewController.swift */; };
 		9D4606821DC109890061651F /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4606811DC109890061651F /* AssetModel.swift */; };
 		9D4606841DC10A8D0061651F /* AssetsDataStoreProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4606831DC10A8D0061651F /* AssetsDataStoreProtocol.swift */; };
 		9D4606861DC10CAD0061651F /* LocalAssetsDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4606851DC10CAD0061651F /* LocalAssetsDataStore.swift */; };
 		9D4606891DC122DF0061651F /* NewAssetPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4606881DC122DF0061651F /* NewAssetPresenter.swift */; };
 		9D46068B1DC123170061651F /* NewAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D46068A1DC123170061651F /* NewAssetViewController.swift */; };
+		9D514CBA1DF8A2EA00716194 /* GoalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D514CB91DF8A2EA00716194 /* GoalTableViewCell.swift */; };
 		9D58CF6C1DD231430044943E /* RepeatPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D58CF6B1DD231430044943E /* RepeatPattern.swift */; };
 		9D98A5821DCA71F700FB339F /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D98A5811DCA71F700FB339F /* NewGoalViewController.swift */; };
 		9D98A5841DCA720600FB339F /* NewGoalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D98A5831DCA720600FB339F /* NewGoalPresenter.swift */; };
@@ -161,6 +164,7 @@
 		9D4606851DC10CAD0061651F /* LocalAssetsDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalAssetsDataStore.swift; path = Core/Assets/LocalAssetsDataStore.swift; sourceTree = "<group>"; };
 		9D4606881DC122DF0061651F /* NewAssetPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewAssetPresenter.swift; path = Presentation/NewAsset/NewAssetPresenter.swift; sourceTree = "<group>"; };
 		9D46068A1DC123170061651F /* NewAssetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewAssetViewController.swift; path = Presentation/NewAsset/NewAssetViewController.swift; sourceTree = "<group>"; };
+		9D514CB91DF8A2EA00716194 /* GoalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalTableViewCell.swift; path = Presentation/Goal/GoalTableViewCell.swift; sourceTree = "<group>"; };
 		9D58CF6B1DD231430044943E /* RepeatPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepeatPattern.swift; path = Core/RepeatPattern.swift; sourceTree = "<group>"; };
 		9D98A5811DCA71F700FB339F /* NewGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewGoalViewController.swift; path = Presentation/NewGoal/NewGoalViewController.swift; sourceTree = "<group>"; };
 		9D98A5831DCA720600FB339F /* NewGoalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewGoalPresenter.swift; path = Presentation/NewGoal/NewGoalPresenter.swift; sourceTree = "<group>"; };
@@ -239,6 +243,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F76BD32B0ED7227F9D29EFF /* Pods_Watch_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +251,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0A4A9B13C3B6A3981CDB07 /* Pods_Watch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +271,7 @@
 				51801017346F843F4D76B548 /* Pods */,
 			);
 			sourceTree = "<group>";
+			tabWidth = 5;
 		};
 		2B21323B1D6B57C900266ACB /* Products */ = {
 			isa = PBXGroup;
@@ -323,6 +330,7 @@
 				9DD0A82D1DBFFC4E0069B8CA /* Assets */,
 				9D4606871DC122AF0061651F /* NewAsset */,
 				9D98A5801DCA71BA00FB339F /* NewGoal */,
+				9D514CB81DF8A27800716194 /* Goal */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -369,6 +377,14 @@
 				9D46068A1DC123170061651F /* NewAssetViewController.swift */,
 			);
 			name = NewAsset;
+			sourceTree = "<group>";
+		};
+		9D514CB81DF8A27800716194 /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+				9D514CB91DF8A2EA00716194 /* GoalTableViewCell.swift */,
+			);
+			name = Goal;
 			sourceTree = "<group>";
 		};
 		9D98A5801DCA71BA00FB339F /* NewGoal */ = {
@@ -685,7 +701,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = zheref;
 				TargetAttributes = {
 					2B2132391D6B57C900266ACB = {
@@ -718,7 +734,7 @@
 				};
 			};
 			buildConfigurationList = 2B2132351D6B57C900266ACB /* Build configuration list for PBXProject "DailyTracker" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -744,7 +760,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D2A77961DDCD2AF00110D8C /* DailyTracker.xcdatamodeld in Resources */,
 				2B21324B1D6B57C900266ACB /* LaunchScreen.storyboard in Resources */,
 				2B2132481D6B57C900266ACB /* Assets.xcassets in Resources */,
 				2B2132431D6B57C900266ACB /* Main.storyboard in Resources */,
@@ -1021,9 +1036,11 @@
 				9DD0A8211DBFBC500069B8CA /* Globals.swift in Sources */,
 				9DA88BB11DBAB3DD00BA6DF6 /* Record+CoreDataProperties.swift in Sources */,
 				9DD0A8331DBFFF090069B8CA /* AssetTableViewCell.swift in Sources */,
+				9D36ED881E368CDB00A131D9 /* DailyTracker.xcdatamodeld in Sources */,
 				9D0DDE0D1DCCDEAA00C6156B /* LocalCategoriesDataStore.swift in Sources */,
 				9D1B08511DBEBA0700CA6350 /* DailyPresenter.swift in Sources */,
 				9D2A77941DDCCD5800110D8C /* Goal+CoreDataProperties.swift in Sources */,
+				9D514CBA1DF8A2EA00716194 /* GoalTableViewCell.swift in Sources */,
 				2B2132401D6B57C900266ACB /* ViewController.swift in Sources */,
 				9DDC0DFF1DCBD33B00497165 /* CategoryModel.swift in Sources */,
 				9D4606841DC10A8D0061651F /* AssetsDataStoreProtocol.swift in Sources */,
@@ -1220,6 +1237,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8D7BA87E2A5258E4C03F269B /* Pods-DailyTracker.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AQUE4FE98B;
@@ -1238,6 +1256,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8B4909B7432CB84132F46D65 /* Pods-DailyTracker.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = AQUE4FE98B;
